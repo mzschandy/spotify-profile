@@ -7,8 +7,6 @@ const Login = () => {
     <>
       <h2>Spotify Login</h2>
       <a href={LOGIN_URI}>Login</a>
-      <a href="http://localhost:5000/test">Test 2 Route test</a>
-      <a href="http://localhost:5000/callback">Callback route trst</a>
     </>
   )
 }
