@@ -1,8 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../card/Card.component";
 import Tab from "./tab/Tab.component";
+import { getTopArtistsLong,
+  getTopArtistsMedium, 
+  getTopTracksShort, 
+  getTopTracksMedium, 
+  getTopTracksLong,
+  getAllArtists, 
+  getTopArtistsShort} from "../../routes";
+import axios from "axios";
 
 const TabRow = () => {
+  const [artistsMonth, setArtistsMonth] = useState(null)
+  const [artistsYear, setArtistsYear] = useState(null)
+  const [artistsAlltime, setArtistsAllTime] = useState(null)
+  // const [songsMonth, setSongsMonth] = useState(null)
+  // const [songsYear, setSongsYear] = useState(null)
+  // const [songsAlltime, setSongsAllTime] = useState(null)
+  // const [albumsMonth, setAlbumsMonth] = useState(null)
+  // const [albumsYear, setAlbumsYear] = useState(null)
+  // const [albumsAlltime, setAlbumsAllTime] = useState(null)
+
+  const fetchData = async () => {
+    /*
+    const {artistsMonth, artistsYear, artistAlltime} 
+      = await getAllArtists()*/
+    const artistsMonth = await getTopArtistsShort();
+    const artistsYear = await getTopArtistsMedium();
+    const artistsAllTime = await getTopArtistsLong();
+
+    setArtistsMonth(artistsMonth)
+    setArtistsYear(artistsYear)
+    setArtistsAllTime(artistsAllTime)
+    //setArtistsAllTime(artistAlltime);
+    //setArtistsMonth(artistsMonth);
+    //setArtistsYear(artistsYear);
+
+  }
+
+
+  useEffect(() => {
+    fetchData()
+  }, [])
 
   const openTab = (tabName) => {
     let i, content;
@@ -15,6 +54,10 @@ const TabRow = () => {
 
   }
 
+  console.log("artistsMonth", artistsMonth)
+  console.log("artistsYear", artistsYear)
+  console.log("artistsAllTime", artistsAlltime)
+
   return(
     <>
       
@@ -25,13 +68,13 @@ const TabRow = () => {
       </div>
       <div className="flex">
         <div id="ThisMonth" className="content default hidden w-full">
-          <Tab/>
+          {artistsMonth ? <Tab timePeriod="This Month" artists={artistsMonth.data} /> : <div>Loading...</div> }
         </div>
         <div id="ThisYear" className="content hidden w-full">
-          <Tab/>
+          {artistsYear ? <Tab timePeriod="This Year" artists={artistsYear.data}/> : <div>Loading...</div>}
         </div>
         <div id="AllTime" className="content hidden w-full">
-          <Tab/>
+          {artistsAlltime ? <Tab timePeriod="of All Time" artists={artistsAlltime.data}/> : <div>Loading...</div>}
         </div>
       </div>
     </>

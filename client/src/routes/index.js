@@ -17,13 +17,13 @@ const getHashParams = () => {
   let e;
   const r = /([^&;=]+)=?([^&;]*)/g;
   const q = window.location.hash.substring(1);
-  console.log("q", q);
-  console.log("window location", window.location)
-  console.log("window location hash", window.location.hash.substring(1))
+  //console.log("q", q);
+  //  console.log("window location", window.location)
+  // console.log("window location hash", window.location.hash.substring(1))
   while ((e = r.exec(q))) {
     hashParams[e[1]] = decodeURIComponent(e[2]);
   }
-  console.log("hashparams", hashParams);
+  // console.log("hashparams", hashParams);
   
   return hashParams;
 }
@@ -37,10 +37,10 @@ const refreshToken = async () => {
 
 export const getToken = () => {
   const {error, access_token, refresh_token} = getHashParams();
-  console.log("getHashParams() >",getHashParams());
+  // console.log("getHashParams() >",getHashParams());
 
-  console.log("access token?", access_token)
-  console.log("refresh token", access_token)
+  // console.log("access token?", access_token)
+  // console.log("refresh token", access_token)
 
   if (error) {
     console.log(error);
@@ -68,8 +68,8 @@ const headers = {
   'Content-Type': 'application/json',
 };
 
-console.log("headers", headers)
-console.log(axios.get('https://api.spotify.com/v1/me', { headers }))
+// console.log("headers", headers)
+//console.log(axios.get('https://api.spotify.com/v1/me', { headers }))
 
 /**
  * Get Current User's Profile
@@ -94,6 +94,18 @@ export const getTopTracksMedium = () =>
   axios.get('https://api.spotify.com/v1/me/top/tracks?limit=50&time_range=medium_term', {
     headers,
   });
+
+export const getAllArtists = () => {
+  axios.all([getTopArtistsShort(), getTopArtistsMedium(), getTopArtistsLong()])
+    .then(
+      axios.spread((artistShort, artistMedium, artistLong) => ({
+        artistShort: artistShort.data,
+        artistMedium: artistMedium.data,
+        artistLong: artistLong.data,
+      })),
+    );
+}
+
 export const getTopTracksLong = () =>
   axios.get('https://api.spotify.com/v1/me/top/tracks?limit=50&time_range=long_term', { headers });
 

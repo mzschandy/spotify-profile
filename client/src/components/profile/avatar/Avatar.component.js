@@ -14,7 +14,7 @@ const Avatar = () => {
    fetchData()
   }, [])
 
-  console.log("user", user);
+  console.log("Avatar user >", user);
   return (
     <> 
       {user ? 
