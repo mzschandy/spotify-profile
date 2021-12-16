@@ -14,9 +14,9 @@ const TabRow = () => {
   const [artistsMonth, setArtistsMonth] = useState(null)
   const [artistsYear, setArtistsYear] = useState(null)
   const [artistsAlltime, setArtistsAllTime] = useState(null)
-  // const [songsMonth, setSongsMonth] = useState(null)
-  // const [songsYear, setSongsYear] = useState(null)
-  // const [songsAlltime, setSongsAllTime] = useState(null)
+  const [songsMonth, setSongsMonth] = useState(null)
+  const [songsYear, setSongsYear] = useState(null)
+  const [songsAlltime, setSongsAllTime] = useState(null)
   // const [albumsMonth, setAlbumsMonth] = useState(null)
   // const [albumsYear, setAlbumsYear] = useState(null)
   // const [albumsAlltime, setAlbumsAllTime] = useState(null)
@@ -28,10 +28,16 @@ const TabRow = () => {
     const artistsMonth = await getTopArtistsShort();
     const artistsYear = await getTopArtistsMedium();
     const artistsAllTime = await getTopArtistsLong();
+    const songsMonth = await getTopTracksShort();
+    const songsYear = await getTopTracksMedium();
+    const songsAllTime = await getTopTracksLong();
 
     setArtistsMonth(artistsMonth)
     setArtistsYear(artistsYear)
     setArtistsAllTime(artistsAllTime)
+    setSongsMonth(songsMonth)
+    setSongsYear(songsYear)
+    setSongsAllTime(songsAllTime)
     //setArtistsAllTime(artistAlltime);
     //setArtistsMonth(artistsMonth);
     //setArtistsYear(artistsYear);
@@ -57,6 +63,7 @@ const TabRow = () => {
   console.log("artistsMonth", artistsMonth)
   console.log("artistsYear", artistsYear)
   console.log("artistsAllTime", artistsAlltime)
+  console.log("songsMonth", songsMonth)
 
   return(
     <>
@@ -68,13 +75,22 @@ const TabRow = () => {
       </div>
       <div className="flex">
         <div id="ThisMonth" className="content default hidden w-full">
-          {artistsMonth ? <Tab timePeriod="This Month" artists={artistsMonth.data} /> : <div>Loading...</div> }
+          {artistsMonth && songsMonth ? <Tab 
+                            timePeriod="This Month" 
+                            artists={artistsMonth.data}
+                            songs={songsMonth.data} /> : <div>Loading...</div> }
         </div>
         <div id="ThisYear" className="content hidden w-full">
-          {artistsYear ? <Tab timePeriod="This Year" artists={artistsYear.data}/> : <div>Loading...</div>}
+          {artistsYear && songsYear ? <Tab 
+                            timePeriod="This Year" 
+                            artists={artistsYear.data}
+                            songs={songsYear.data} /> : <div>Loading...</div>}
         </div>
         <div id="AllTime" className="content hidden w-full">
-          {artistsAlltime ? <Tab timePeriod="of All Time" artists={artistsAlltime.data}/> : <div>Loading...</div>}
+          {artistsAlltime && songsAlltime ? <Tab 
+                              timePeriod="of All Time" 
+                              artists={artistsAlltime.data}
+                              songs={songsAlltime.data} /> : <div>Loading...</div>}
         </div>
       </div>
     </>
