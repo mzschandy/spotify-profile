@@ -17,20 +17,20 @@ const ListItem = ({name, artist, album, length, image, counter}) => {
 
   return (
     <>
-      <div className="gridcell grid rounded-sm px-4 gap-4 h-14">
-              <div className="flex items-center">{counter+=1}</div>
+      <div className="gridcell grid rounded-sm px-4 md:gap-4 h-14 spotify-gray">
+              <div className="md:flex items-center hidden">{counter+=1}</div>
               <div className="flex justify-start items-center">
                 <div className="mr-4 bg-green-700 w-10 h-10">
                   <img className="w-10 h-10" src={image} alt="album cover"/>
                 </div>
-                <div>
-                  <div>{name}</div>
-                  <div className="text-sm">Artist</div>
+                <div className="flex md:block flex-col overflow-ellipsis">
+                  <div className="text-base overflow-hidden overflow-ellipsis w-52 whitespace-nowrap">{name}</div>
+                  <div className="md:text-sm text-xs">{artist}</div>
                 </div>
                 
               </div>
-              <div className="flex items-center justify-self-start">{album}</div>
-              <div className="flex items-center justify-self-end">{newLength}</div>
+              <div className="hidden md:flex items-center justify-self-start">{album}</div>
+              <div className="hidden md:flex items-center justify-self-end">{newLength}</div>
             </div>
     </>
   )

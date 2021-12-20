@@ -3,10 +3,49 @@
 @tailwind utilities;
 
 body {
-  background-color: #191414;
+  background-color: #000000;
   color: #ffffff;
 }
 
 .gridcell {
   grid-template-columns: 16px 4fr 2fr minmax(120px, 1fr);
 }
+
+@media screen and (max-width:749px) {
+  .gridcell {
+    grid-template-columns: auto;
+  }
+
+  .card-bottom {
+    min-height: 0;
+    margin-top: 1em;
+  }
+}
+
+.spotify-dark-gray {
+  background-color: #121212;
+}
+
+.spotify-gray {
+  background-color: #181818;
+}
+
+.spotify-gray:hover, .tab:hover {
+  background-color: #282828;
+}
+
+.image-size {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.image-container {
+  box-shadow: 0 8px 24px rgb(0 0 0 / 50%);
+  padding-bottom: 100%;
+}
+
+.card-bottom {
+  min-height: 62px;
+}
+

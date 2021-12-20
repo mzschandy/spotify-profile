@@ -8,7 +8,7 @@ const ProfileCard = () => {
   
   return (
     <>
-      <div className="rounded-md bg-gray-700 m-10 p-10">
+      <div className="rounded-lg md:rounded-md spotify-dark-gray m-3 p-4 md:m-10 md:p-10">
         <Avatar />
         <TabRow/>
       </div>

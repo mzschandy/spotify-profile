@@ -68,10 +68,10 @@ const TabRow = () => {
   return(
     <>
       
-      <div className="text-center">
-        <button id="defaultOpen" onClick={() => openTab("ThisMonth")} className="mx-1 md:mx-5 hover:bg-gray-400 rounded-sm p-2">This Month</button>
-        <button onClick={() => openTab("ThisYear")} className="mx-1 md:mx-5 hover:bg-gray-400 rounded-sm p-2">Year So Far</button>
-        <button onClick={() => openTab("AllTime")} className="mx-1 md:mx-5 hover:bg-gray-400 rounded-sm p-2">All Time</button>
+      <div className="text-center mb-4 md:mb-0">
+        <button id="defaultOpen" onClick={() => openTab("ThisMonth")} className="text-xs md:text-base mx-1 md:mx-5 tab rounded-sm p-1 md:p-2">This Month</button>
+        <button onClick={() => openTab("ThisYear")} className="mx-1 md:mx-5 tab rounded-sm p-1 md:p-2 text-xs md:text-base">Year So Far</button>
+        <button onClick={() => openTab("AllTime")} className="mx-1 md:mx-5 tab rounded-sm p-1 md:p-2 text-xs md:text-base">All Time</button>
       </div>
       <div className="flex">
         <div id="ThisMonth" className="content default hidden w-full">

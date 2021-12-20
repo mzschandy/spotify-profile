@@ -7,9 +7,9 @@ const Tab = ({timePeriod, artists, songs}) => {
   console.log("tab component", artists)
   return (
     <>
-      <div className="text-2xl mb-4">Top Artists {timePeriod}</div>
+      <div className="text-base md:text-2xl mb-4">Top Artists {timePeriod}</div>
       <CardLister artists={artists}/>
-      <div className="text-2xl my-4">Top Songs {timePeriod}</div>
+      <div className="text-base md:text-2xl my-4">Top Songs {timePeriod}</div>
       <ItemsList songs={songs}/>
     </>
   )

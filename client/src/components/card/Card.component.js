@@ -3,13 +3,17 @@ import React from "react"
 const Card = ({artist, image}) => {
   return (
     <>
-      <div className="p-4 bg-gray-900 rounded-md w-full">
+      <div className="p-4 spotify-gray rounded-md w-full relative">
         <div className="h-full">
-          <div className="">
-            <img className="rounded-full mb-4 h-full  w-full bg-green-800" src={image} alt="artist avatar"/>
+          <div className="md:rounded-full relative md:mb-4">
+            <div className="image-container w-full relative rounded-full">
+              <div>
+                <img className="rounded-full bg-green-800 absolute left-0 top-0 w-full h-full" src={image} alt="artist avatar"/>
+              </div>
+            </div>
           </div>
-          <div style={{"minHeight": 62}}>
-            <div className="max-w-full">{artist}</div>
+          <div className="card-bottom">
+            <div className="max-w-full md:text-base text-sm">{artist}</div>
             <div className="text-xs mt-2">Artist</div>
           </div>
         </div>
