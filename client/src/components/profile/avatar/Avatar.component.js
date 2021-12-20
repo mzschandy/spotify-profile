@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import path from "axios"
-import { getUser } from "../../../routes";
+import { getUser } from "../../../routes/routes";
 
 const Avatar = () => {
   const [user, setUser] = useState(null)

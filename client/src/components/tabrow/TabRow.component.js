@@ -7,7 +7,7 @@ import { getTopArtistsLong,
   getTopTracksMedium, 
   getTopTracksLong,
   getAllArtists, 
-  getTopArtistsShort} from "../../routes";
+  getTopArtistsShort} from "../../routes/routes";
 import axios from "axios";
 
 const TabRow = () => {

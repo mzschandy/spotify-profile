@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import Layout from './components/layout/Layout.component';
 import Login from './components/login/login.component';
-import { token } from './routes';
+import { token } from './routes/routes';
 
 const App = () => {
   const [accessToken, setAccessToken] = useState("");
