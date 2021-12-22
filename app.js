@@ -48,7 +48,7 @@ app.get("/login", (req, res) => {
   const state = generateRandomString(16)
   const scope = "user-read-private user-read-email user-follow-read user-library-read user-top-read"
 
-  // console.log("Oh this is the login route");
+  console.log(REDIRECT_URI);
 
   res.cookie(stateKey, state);
   res.redirect("https://accounts.spotify.com/authorize?" +
