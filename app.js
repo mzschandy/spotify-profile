@@ -168,5 +168,5 @@ app.listen(PORT, () => {
   console.log("App running on port", PORT)
   console.log(__dirname)
   console.log(path.resolve(__dirname, '/client/build/index.html'))
-  console.log(path.sendFile(__dirname, '/client/public/index.html'))
+  // console.log(path.sendFile(__dirname, '/client/public/index.html'))
 })
