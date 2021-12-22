@@ -11,7 +11,7 @@ const cookieParser = require('cookie-parser');
 const app = express() 
 const PORT = process.env.PORT || process.env.PORT || 5000
 
-app.use(express.static(path.resolve(__dirname, "../client/public/")))
+app.use(express.static(path.resolve(__dirname, "./client/build")))
 app.use(cors({origin: true, credentials: true}))
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(cookieParser())
