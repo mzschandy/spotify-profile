@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "YARN_PRODUCTION=false NPM_CONFIG_PRODUCTION=false cd client && yarn && yarn install --production && yarn build"
+    "heroku-postbuild": "cd client && yarn && yarn install --production && yarn build"
   },
   "engines": {
     "node": "14.16.0"
