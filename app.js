@@ -39,8 +39,8 @@ const generateRandomString = (length) => {
 const stateKey = 'spotify_auth_state';
 
 app.get("/", (req, res) => {
-  res.render(path.resolve(__dirname, "../client/public/index.html"))
-  console.log("This is the default/home route");
+  res.render(path.resolve(__dirname, "./client/public/index.html"))
+  // console.log("This is the default/home route");
 })
 
 app.get("/login", (req, res) => {
@@ -159,7 +159,7 @@ app.get("/refresh_token", (req, res) => {
 })
 
 app.get("*", (req, res) => {
-  res.render(path.resolve(__dirname, "../client/public/index.html"))
+  res.render(path.resolve(__dirname, "./client/public/index.html"))
 })
 
 
