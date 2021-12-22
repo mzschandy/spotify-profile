@@ -2,7 +2,9 @@ import React from "react"
 import {FaSpotify} from "react-icons/fa"
 import { IconContext } from "react-icons"
 
-const LOGIN_URI = "http://localhost:5000/login"
+const LOGIN_URI = process.env.NODE_ENV !== 'production'
+? 'http://localhost:5000/login'
+: 'https://spotify-profile-card.herokuapp.com/login';
 
 const Login = () => {
   return (
