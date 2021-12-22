@@ -2,7 +2,9 @@ import React from "react"
 import {FaSpotify} from "react-icons/fa"
 import { IconContext } from "react-icons"
 
-const LOGIN_URI =  'https://spotify-profile-card.herokuapp.com/login';
+const LOGIN_URI =  process.env.NODE_ENV !== 'production'
+? 'http://localhost:5000/login'
+: 'https://spotify-profile.herokuapp.com/login';
 
 const Login = () => {
   return (
@@ -11,7 +13,7 @@ const Login = () => {
         <div className="justify-center self-center mx-auto">
           <div className="text-4xl font-semibold mb-4">Spotify Profile</div>
           <a className="px-4 py-2 bg-green-700 rounded-full w-52 h-14 flex text-center justify-center items-center mx-auto" 
-            href="https://spotify-profile-card.herokuapp.com/login">
+            href={LOGIN_URI}>
             <IconContext.Provider value={{size: "2em"}}>
               <span>
                 <FaSpotify />
