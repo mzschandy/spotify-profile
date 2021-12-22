@@ -11,7 +11,7 @@ const cookieParser = require('cookie-parser');
 const app = express() 
 const PORT = process.env.PORT || 5000
 
-app.use(express.static(path.resolve(__dirname, "/client/build")))
+app.use(express.static(path.resolve(__dirname, "client/build")))
 app.use(cors({origin: true, credentials: true}))
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(cookieParser())
@@ -39,7 +39,7 @@ const generateRandomString = (length) => {
 const stateKey = 'spotify_auth_state';
 
 app.get("/", (req, res) => {
-  res.sendFile(path.resolve(__dirname, '/client/build/index.html'));
+  res.sendFile(path.resolve(__dirname, 'client/build/index.html'));
   console.log(__dirname)
   // console.log("This is the default/home route");
 })
